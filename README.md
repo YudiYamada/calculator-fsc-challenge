@@ -1,69 +1,61 @@
-# React + TypeScript + Vite
+# 🧮 Desafio FSC - Calculadora
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Uma calculadora simples e elegante construída com **React**, **Tailwind CSS** e ícones do **Lucide**. Suporta operações básicas, exponenciação, ponto decimal, backspace e atalhos de teclado.
 
-Currently, two official plugins are available:
+## Regras do Desafio
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Para acessar as regras, clique [AQUI](https://www.notion.so/Calculadora-256e71495ebe80c7afd3fa093d64d80a)
 
-## Expanding the ESLint configuration
+## ✨ Funcionalidades
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Operações matemáticas: `+`, `-`, `*`, `/`, `xʸ` (exponenciação)
+- Botões adicionais: `AC` (limpar), `.` (decimal), `⌫` (backspace)
+- Suporte a teclado:
+  - Números: `0–9`
+  - Operações: `+`, `-`, `*`, `/`, `^`
+  - Igual: `Enter` ou `=`
+  - Limpar: `Escape`
+  - Apagar: `Backspace`
+  - Decimal: `.`
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🧠 Tecnologias Utilizadas
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+- [React](https://reactjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Lucide Icons](https://lucide.dev/)
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 📦 Instalação
+
+```bash
+git clone https://github.com/seu-usuario/react-calculator.git
+cd react-calculator
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🖼️ Interface
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+A calculadora é responsiva e apresenta:
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- Display com número atual, operação e resultado
+- Teclado numérico e de operações
+- Ícones interativos com feedback visual
+
+## 🧩 Estrutura do Código
+
+- `Calculator.tsx`: componente principal com lógica e interface
+- `useEffect`: escuta eventos de teclado
+- `useState`: gerencia números, operações e resultado
+
+## 📌 Observações
+
+- A função `eval()` é usada para avaliar expressões matemáticas. Em produção, recomenda-se substituí-la por uma abordagem mais segura.
+- O botão de histórico (`<History />`) está presente visualmente, mas ainda não implementa funcionalidade.
+
+## 📄 Licença
+
+Este projeto é de uso livre para fins educacionais e pessoais. Sinta-se à vontade para modificar e aprimorar!
+
+---
+
+Feito com 💙 por [Yudi](https://www.linkedin.com/in/yudi-yamada-0a10181b9/)

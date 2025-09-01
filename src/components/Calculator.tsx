@@ -10,6 +10,7 @@ function Calculator() {
     { label: ".", action: "decimal" },
     { label: "xʸ", action: "exponentiation" },
   ];
+
   const [currentNumber, setCurrentNumber] = useState("0");
   const [previousNumber, setPreviousNumber] = useState("");
   const [operation, setOperation] = useState("");
@@ -95,17 +96,33 @@ function Calculator() {
         handleNumberClick(Number(key));
       } else if (operations.includes(key)) {
         handleOperationClick(key);
-      } else if (key === "Enter") {
-        event.preventDefault();
+      } else if (key === "Enter" || key === "=") {
+        event.preventDefault(); // evita comportamento padrão
         handleEquals();
-      } else if (key === "Escape" || key.toLowerCase() === "c") {
+      } else if (key === "Backspace") {
+        handleBackspace();
+      } else if (key === "Escape") {
         handleClear();
+      } else if (key === ".") {
+        handleDecimal();
+      } else if (key === "^") {
+        handleExponentiation();
       }
     };
 
     window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [currentNumber, previousNumber, operation]);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [
+    handleNumberClick,
+    handleOperationClick,
+    handleEquals,
+    handleBackspace,
+    handleClear,
+    handleDecimal,
+    handleExponentiation,
+  ]);
 
   return (
     <div className="flex h-80 w-72 flex-col items-center rounded-lg border-2 border-black bg-gray-200 p-2.5">
